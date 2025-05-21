@@ -1,504 +1,350 @@
-# _****_
+# Online Quiz System
 
-## **CARDINALS GROUP MEMBERS**:
+## Project Overview
+The **Online Quiz System** is designed to streamline online examination processes for universities, making assessments efficient, scalable, and user-friendly. Built using Oracle PL/SQL, this system automates quiz creation, administration, and grading, while providing performance analytics for teachers and students. The project is developed by the **Cardinals Group** to address challenges in online assessment management.
 
-1.	  MUGISHA Julien			          26967
-2.	  IRADUKUNDA Delphine 			    23665
-3.	  SHEJA N M Yves				        26500
-4.	  ISHIMWE Mireille 			        26828
-5.	  INEZA HABAMENSHI Darryl		    25948
-6.	  UWAYO Olga 				            26139
-7.	  KAMALI MUSASIRA Philbert		  26261
-8.	  IRAKOZE Arlaine Peace			    23753
-9.	  ISHEMA NGABO Ange			        26035
+### Cardinals Group Members
+1. Bakwiye Massa Patience       27388
+
+---
+
+## Project Phases
+
+### Phase 2: 💼 Business Process Modeling
+This phase focuses on defining and visualizing the workflow of the Online Quiz System.
+
+- **Scope**: Centralize quiz management tasks, including quiz creation, student registration, and performance tracking.
+- **Objectives**:
+  - Automate quiz generation to save time for instructors.
+  - Ensure secure and timed exams to prevent cheating.
+  - Provide real-time performance analytics for teachers and students.
+- **Entities**:
+  - **Student**: Registers, takes quizzes, and views scores.
+  - **Teacher**: Creates and manages quizzes, tracks student performance.
+  - **Quiz**: Stores questions, time limits, and grading rules.
+  - **Attempt**: Organizes teachers and students.
+- **Significance in MIS**: The system supports decision-making by providing teachers with insights into student performance, enhancing efficiency in quiz administration.
 
 
-## The provided documents in the main branch (Phase 2 and 3) outline the design and objectives of a course management system aimed at streamlining tasks for university lecturers.
-📝Here are some insights of the whole project:
-<br>
-<br>
+---
 
-
-
-## PHASE 2: 💼Business Process Modeling focuses on defining and visualizing the workflow of the course management system. This phase includes:
-<br>
-
-⚡ _**Scope**_ : Centralizing course management tasks like attendance, assignments, and grading.
-
-🎯 _**Objectives**_ : Automate attendance tracking, simplify grading, and offer real-time performance data.
-
-😈 _**Entities**_ : Lecturer, Course, Class, Student, Assignment, Grade, and Department, each playing a specific role in the workflow.
-
-😎 _**Significance in MIS**_ : The system supports decision-making by giving lecturers insights into student performance, enhancing efficiency in course administration​(refernce to Phase 2.docx ).
 <br>
 <br>
 <br>
 
-![pl](https://github.com/user-attachments/assets/4d5217ea-19ca-4363-9d76-fe8aaf20d969)
+![Image](https://github.com/user-attachments/assets/e9584636-dd7b-4d50-a8b7-437b445bc1cb)
 
 <br>
 <br>
 
+### Phase 3: ⚙️ Logical Model Design
+This phase provides a structured database schema to support the Online Quiz System.
 
-## PHASE 3: ⚙️Logical Model Design provides a structured database schema for the system. Key components include:
-<br>
-<br>
+- **Entities**:
+  - , Teacher, Student, Quiz, Question, Submission, Grade, and Quiz Attempt.
+- **Relationships**:
+  - Defined using primary and foreign keys to connect students, teachers, quizzes, and submissions, ensuring accurate tracking of quiz attempts and grades.
+- **Goals**:
+  - Create an organized database structure to support secure and accessible data.
+  - Enable efficient tracking of student progress and teacher workload.
 
+---   ![Image](https://github.com/user-attachments/assets/83d27ccb-13b8-4f3c-8085-ad397a381fd6)
 
-👌 _**Entities**_ : Department, Lecturer, Course, Student, Assignment, Submission, Grade, and Attendance.
+### Phase 4: 📡 Creating Database and Oracle Enterprise Manager
 
-🫂 _**Relationships**_ : Defined using primary and foreign keys, the model connects students, lecturers, and courses to facilitate assignment submissions, grading, and attendance tracking.
+#### Creation of a Pluggable Database
+A pluggable database named **TUE_CARDINALS_ONLINEQUIZSYSTEM** was created to store the system's data.
 
-🎊 _**Goals**_ : Create an organized structure to support accurate and accessible data, enabling effective tracking of student progress and lecturer workload management​(reference to Phase 3.docx).
-
-![Phase 3 (Logical model structure)](https://github.com/user-attachments/assets/62ccfcbe-81b3-4c63-a719-22a532f49ad1)
-
-
-Together, these documents lay the foundation for a course management system that supports lecturers in administrative tasks and contributes to better educational outcomes.
-
-<br>
-<br>
-
-# PHASE 4: 📡 _CREATING DATABASE AND ORACLE ENTERPRISE MANAGER._
-
-## CREATION OF A PLUGGABLE DATABASE:
-
- We have to create a pluggable database for our project and we name it " _**TUE_CARDINALS_COURSEMANAGEMENTSYSTEM**_ ". We created it using the following codes
-
- ```sql
-
+```sql
 -- Step 1: Create the Pluggable Database (PDB)
-
-CREATE PLUGGABLE DATABASE tue_cardinals_CourseManagementSystem
-ADMIN USER tue_cardinals IDENTIFIED BY cardinals
+CREATE PLUGGABLE DATABASE wed_27388_Massa_OnlineQuizSystem
+ADMIN USER Patience IDENTIFIED BY Patience
 ROLES = (DBA)
-FILE_NAME_CONVERT = ('C:\app\CIOOL\product\21c\oradata\XE\pdbseed',
-'C:\app\CIOOL\product\21c\oradata\XE\tue_cardinals_CourseManagementSystem/');
+FILE_NAME_CONVERT = ('C:\app\MutayombaAimable\product\21c\oradata\XE\',
+                         'C:\app\MutayombaAimable\product\21c\oradata\XE\wed_27388_Massa_OnlineQuizSystem_db\');
+
+
 
 -- Step 2: Open the Pluggable Database
-
-ALTER PLUGGABLE DATABASE tue_cardinals_CourseManagementSystem OPEN;
-
+alter pluggable database wed_27388_OnlineQuizSystem_db open;
 ```
-The result should be like this 
 
-![alt text](Phase%204%20(Create%20Pluggable%20DB%20SCREENSHOT).PNG)
+- **Configuration**: After creating the PDB, configure the Service Name using the Net Configuration Assistant.
+- **Oracle Enterprise Manager**: Log in with the created username and password, using the pluggable database as the container. The homepage provides access to database management tools.
 
-After this you should configure the Service Name through Net configuration assissant.
+---
 
-## ORACLE ENTERPRISE MANAGER:
 
-Login with the username created and its password with the container as our pluggable database
+![Image](https://github.com/user-attachments/assets/9ee929bd-6046-479e-81c9-e5d4c4a796ca)
+### Phase 5: 📝 Table Implementation and Data Insertion
 
-It should give you, a homepage like this:
-
-![alt text](Phase%204%20(Oracle%20Enterprise%20HomePage%20SCREENSHOT)%20.PNG)
-
-_For any futher information please go check on the Oracle enterprise tablespace screenshot and Oracle enterprise login screenshot._
-
-<br>
-<br>
-
-# PHASE 5: 📝 _TABLE IMPLEMENTATION AND DATA INSERTION._
-
-## TABLE CREATION:
-
-Here are the codes for the creation of all tables while keeping data integrity and using corresponding constraints :
+#### Table Creation
+The following SQL code creates the tables for the Online Quiz System, ensuring data integrity with appropriate constraints.
 
 ```sql
--- Table department
-CREATE TABLE DEPARTMENT (
-Department_ID INT PRIMARY KEY,
-Name VARCHAR(100) NOT NULL,
-Contact_Details VARCHAR(255) NOT NULL
+CREATE TABLE student (
+    student_id NUMBER PRIMARY KEY,
+    name VARCHAR2(100) NOT NULL,
+    email VARCHAR2(100) UNIQUE NOT NULL,
+    password VARCHAR2(100) NOT NULL
 );
 
--- Table lecturer
-CREATE TABLE LECTURER (
-Lecturer_ID INT PRIMARY KEY,
-Name VARCHAR(100) NOT NULL,
-Contact_Details VARCHAR(255) NOT NULL,
-Department_ID INT NOT NULL,
-FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT(Department_ID)
+CREATE TABLE teacher (
+    teacher_id NUMBER PRIMARY KEY,
+    name VARCHAR2(100) NOT NULL,
+    email VARCHAR2(100) UNIQUE NOT NULL,
+    password VARCHAR2(100) NOT NULL
 );
 
--- Table course
-CREATE TABLE COURSE (
-Course_ID INT PRIMARY KEY,
-Name VARCHAR(100) NOT NULL,
-Description VARCHAR(200),
-Credits INT NOT NULL,
-Semester INT,
-Lecturer_ID INT NOT NULL,
-FOREIGN KEY (Lecturer_ID) REFERENCES LECTURER(Lecturer_ID)
+CREATE TABLE quiz (
+    quiz_id NUMBER PRIMARY KEY,
+    title VARCHAR2(200) NOT NULL,
+    created_by NUMBER NOT NULL,
+    time_limit NUMBER CHECK (time_limit > 0),
+    total_marks NUMBER CHECK (total_marks >= 0),
+    CONSTRAINT fk_quiz_teacher FOREIGN KEY (created_by) REFERENCES teacher(teacher_id)
 );
 
--- Table student
-CREATE TABLE STUDENT (
-Student_ID INT PRIMARY KEY,
-Name VARCHAR(100) NOT NULL,
-Email VARCHAR(100) UNIQUE,
-Major VARCHAR(100) NOT NULL,
-Year_of_study INT NOT NULL,
-Department_ID INT NOT NULL,
-FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT(Department_ID)
+CREATE TABLE question (
+    question_id NUMBER PRIMARY KEY,
+    quiz_id NUMBER NOT NULL,
+    question_text VARCHAR2(500) NOT NULL,
+    option_a VARCHAR2(200) NOT NULL,
+    option_b VARCHAR2(200) NOT NULL,
+    option_c VARCHAR2(200),
+    option_d VARCHAR2(200),
+    correct_option CHAR(1) CHECK (correct_option IN ('A', 'B', 'C', 'D')),
+    CONSTRAINT fk_question_quiz FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id)
 );
 
--- Table assignment
-CREATE TABLE ASSIGNMENT (
-Assignment_ID INT PRIMARY KEY,
-Course_ID INT NOT NULL,
-Description VARCHAR(200),
-Due_Date DATE NOT NULL,
-Submission_Link VARCHAR(255),
-FOREIGN KEY (Course_ID) REFERENCES COURSE(Course_ID)
+CREATE TABLE attempt (
+    attempt_id NUMBER PRIMARY KEY,
+    student_id NUMBER NOT NULL,
+    quiz_id NUMBER NOT NULL,
+    score NUMBER CHECK (score >= 0),
+    attempt_time DATE DEFAULT SYSDATE,
+    CONSTRAINT fk_attempt_student FOREIGN KEY (student_id) REFERENCES student(student_id),
+    CONSTRAINT fk_attempt_quiz FOREIGN KEY (quiz_id) REFERENCES quiz(quiz_id)
 );
 
--- Table grade
-CREATE TABLE GRADE (
-GRADE_ID INT PRIMARY KEY,
-Student_ID INT NOTNULL,
-Assignment_ID INT NOT NULL,
-Grade_Value INT NOT NULL,
-FOREIGN KEY (Student_ID) REFERENCES STUDENT(Student_ID),
-FOREIGN KEY (Assignment_ID) REFERENCES ASSIGNMENT(Assignment_ID)
-);
 
--- Table submission
-CREATE TABLE SUBMISSION (
-Submission_ID INT PRIMARY KEY,
-Assignment_ID INT NOT NULL,
-Student_ID INT NOT NULL,
-Submission_Date DATE NOT NULL,
-File_Link VARCHAR(255),
-FOREIGN KEY (Assignment_ID) REFERENCES ASSIGNMENT(Assignment_ID),
-FOREIGN KEY (Student_ID) REFERENCES STUDENT(Student_ID)
-);
+#### Data Insertion
+Sample data insertion for the **Department** and **Quiz** tables is provided as an example. For complete data insertion details, refer to the repository files.
 
--- Table attendance
-CREATE TABLE ATTENDANCE (
-Attendance_ID INT PRIMARY KEY,
-Course_ID INT NOT NULL,
-Student_ID INT NOT NULL,
-Status VARCHAR(20) NOT NULL,
-Attendance_Date DATE DEFAULT CURRENT_DATE,
-FOREIGN KEY (Course_ID) REFERENCES COURSE(Course_ID),
-FOREIGN KEY (Student_ID) REFERENCES STUDENT(Student_ID)
-);
+- **Student Table**:
+  ```sql
+  INSERT INTO student VALUES (1001, 'Alice Green', 'alice@gmail.com', 'alicepass');
+INSERT INTO student VALUES (1002, 'Bob Brown', 'bob@gmail.com', 'bobpass');
 
-```
-Here are some few sample of the Tables created for futher information, I recommend you to check out  phase 5 files attached
 
-![alt text](Phase%205%20(Desc%20Tables%20SCREENSHOT).PNG)
+- **Quiz Table**:
+  ```sql
+INSERT INTO quiz VALUES (10, 'Math Quiz 1', 1, 30, 100);
+INSERT INTO quiz VALUES (11, 'Science Quiz 1', 2, 20, 50);
 
-## DATA INSERTION:
+  ** Teacher Table**:
+  INSERT INTO teacher VALUES (1, 'Mr. Smith', 'smith@school.edu', 'pass123');
+INSERT INTO teacher VALUES (2, 'Ms. Jane', 'jane@school.edu', 'pass456');
+ 
+ **Attempt Table**:
+ INSERT INTO attempt VALUES (1000, 1001, 10, 90, SYSDATE);
+INSERT INTO attempt VALUES (1001, 1002, 11, 45, SYSDATE);
 
-For the purpose of keeping the readme short, we chose to use few example to demostrate the insertion of data in our Tables. 
+ **Question Table**:
+ INSERT INTO question VALUES (100, 10, 'What is 2 + 2?', '3', '4', '5', '6', 'B');
+INSERT INTO question VALUES (101, 10, 'What is 10 / 2?', '3', '5', '7', '6', 'B');
+INSERT INTO question VALUES (102, 11, 'What planet is known as the Red Planet?', 'Earth', 'Mars', 'Venus', 'Jupiter', 'B');
 
-### 1. insertion for Department Table
-![alt text](Phase%205%20(Department%20Table%20SCREENSHOT).jpeg)
 
-### 2. insertion for Course Table
-![alt text](Phase%205%20(Course%20table%20SCREENSHOT).jpeg)
+---
 
-_**REMARK**_ : _Please check the  files provided in the repo  for the rest of screenshots_
+### Phase 6: 📓 Database Interactions and Transactions
 
-<br>
-<br>
-
-# PHASE 6:  📓 _DATABASE INTERACTIONS AND TRANSACTION_
-
-## DATABASE OPERATIONS
-
-They are many DML and DDL operations that can be than but we focus on mostly the "JOIN".
-
-We thought and got an idea of how to make a good use of joins outside, the scope the other group would use and we thought we could use _views_ and there are the code for views:
+#### Database Operations
+The system uses **JOIN** operations to retrieve meaningful data, such as student quiz performance.
 
 ```sql
-CREATE VIEW StudentMarks AS
 SELECT 
-    s.Student_ID,
-    s.Name AS Student_Name,
-    d.Name AS Department_Name,
-    a.Description AS Assignment_Description,
-    su.File_Link AS Submission_Link,
-    su.Submission_Date,
-    g.Grade_Value
+    s.student_id,
+    s.name AS student_name,
+    q.quiz_id,
+    q.title AS quiz_title,
+    a.score,
+    TO_CHAR(a.attempt_time, 'DD-MON-YYYY HH:MI AM') AS attempt_time
 FROM 
-    STUDENT s
+    student s
 JOIN 
-    DEPARTMENT d ON s.Department_ID = d.Department_ID
-LEFT JOIN 
-    GRADE g ON s.Student_ID = g.Student_ID
-LEFT JOIN 
-    ASSIGNMENT a ON g.Assignment_ID = a.Assignment_ID
-LEFT JOIN 
-    SUBMISSION su ON su.Assignment_ID = a.Assignment_ID AND su.Student_ID = s.Student_ID;
-```
-
-this views will be called and it will bring the student id selected, their name, department they belong to,the assignment did and their grades.
-
-calling the views:
-
-``` sql
-SELECT * FROM StudentMarks WHERE STUDENT_ID = 1; -- for example
+    attempt a ON s.student_id = a.student_id
+JOIN 
+    quiz q ON a.quiz_id = q.quiz_id
+ORDER BY 
+    s.student_id, a.attempt_time DESC;
 
 ```
 
-##  Transaction Management:
+To call the view:
+```sql
+SELECT * FROM StudentQuizResults WHERE Student_ID = 1;
+```
 
-Firstly, we will give a short explanation of what a transaction is :
+#### Transaction Management
+A transaction ensures data consistency, for example, when recording a quiz submission and updating quiz attempt records.
 
-a transaction is a sequence of operations performed as a single logical unit of work, ensuring data consistency and reliability.
-
-so we chose a simple transaction and here is the following:
-
- ``` sql
+```sql
 BEGIN TRANSACTION;
-
-INSERT INTO ATTENDANCE (Attendance_ID, Course_ID, Student_ID, Status)
-VALUES (26, 1, 40, 'Present');
-
-UPDATE COURSE
-SET Seats_Available = Seats_Available - 1
-WHERE Course_ID = 1;
-
+INSERT INTO SUBMISSION (Submission_ID, Quiz_ID, Student_ID, Submission_Date, Score)
+VALUES (1, 1, 1, SYSDATE, 85);
+INSERT INTO QUIZ_ATTEMPT (Attempt_ID, Submission_ID, Question_ID, Student_Answer, Is_Correct)
+VALUES (1, 1, 1, 'SELECT', 1);
 COMMIT;
-
 ```
-<br>
-<br>
 
-# **Phase 7:🗳️ Advanced Database Programming and Auditing**
+---
 
-This phase focuses on implementing advanced PL/SQL techniques to enhance the **Course Management System (CMS)**. These features aim to ensure system efficiency, maintain data integrity, and establish robust auditing for improved functionality and security.
+### Phase 7: 🛠️ Advanced Database Programming and Auditing
 
+This phase enhances the Online Quiz System with advanced PL/SQL techniques for efficiency, data integrity, and security.
 
-## **Problem Statement**
+#### Problem Statement
+The system addresses:
+1. Enforcing quiz submission rules using **triggers**.
+2. Processing quiz results efficiently with **cursors**.
+3. Improving modularity with **packages**.
+4. Securing sensitive data with **auditing mechanisms**.
 
-The CMS requires advanced programming techniques to address the following challenges:  
-1. Enforcing business rules and automating workflows using **triggers**.  
-2. Efficient row-by-row data processing with **cursors**.  
-3. Improving modularity and reusability with **packages**.  
-4. Monitoring and restricting access to sensitive data using **auditing mechanisms**.
-
-
-### **a) BEFORE Trigger**  
-This trigger enforces validation for attendance status before data is inserted into the `ATTENDANCE` table.
-
-CREATE OR REPLACE TRIGGER before_attendance_insert
-BEFORE INSERT ON ATTENDANCE
-FOR EACH ROW
-BEGIN
-  IF :NEW.Status NOT IN ('Present', 'Absent') THEN
-    RAISE_APPLICATION_ERROR(-20001, 'Invalid status. Must be Present or Absent.');
-  END IF;
-END;
-/
-
-### **b) Compound Trigger**  
-This trigger ensures assignment submission deadlines are respected. It also validates that the assignment ID exists.
-
-CREATE OR REPLACE TRIGGER submission_deadline
-BEFORE INSERT OR UPDATE ON SUBMISSION
+#### 1. Triggers
+- **BEFORE Trigger**: Validates quiz submission time.
+```sql
+CREATE OR REPLACE TRIGGER before_submission_insert
+BEFORE INSERT ON SUBMISSION
 FOR EACH ROW
 DECLARE
-  due_date ASSIGNMENT.Due_Date%TYPE;
+    v_time_limit QUIZ.Time_Limit%TYPE;
+    v_quiz_start DATE;
 BEGIN
-  SELECT Due_Date
-  INTO due_date
-  FROM ASSIGNMENT
-  WHERE Assignment_ID = :NEW.Assignment_ID;
-
-  IF :NEW.Submission_Date > due_date THEN
-    RAISE_APPLICATION_ERROR(-20002, 'Submission past the due date.');
-  END IF;
+    SELECT Time_Limit, SYSDATE
+    INTO v_time_limit, v_quiz_start
+    FROM QUIZ
+    WHERE Quiz_ID = :NEW.Quiz_ID;
+    
+    IF :NEW.Submission_Date > v_quiz_start + (v_time_limit / 1440) THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Submission past quiz time limit.');
+    END IF;
 EXCEPTION
-  WHEN NO_DATA_FOUND THEN
-    RAISE_APPLICATION_ERROR(-20003, 'Assignment ID not found.');
+    WHEN NO_DATA_FOUND THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Quiz ID not found.');
 END;
 /
+```
 
-## **2. Cursor Usage**
+#### 2. Cursor Usage
+Calculates average scores for each student.
 
-This implementation calculates the average grade for each student using explicit cursors.
-
+```sql
 DECLARE
-  CURSOR student_grades IS
-    SELECT g.Student_ID, s.Name, AVG(g.Grade_Value) AS Avg_Grade
-    FROM GRADE g
-    JOIN STUDENT s ON g.Student_ID = s.Student_ID
-    GROUP BY g.Student_ID, s.Name;
-
-  v_student_id STUDENT.Student_ID%TYPE;
-  v_student_name STUDENT.Name%TYPE;
-  v_avg_grade NUMBER;
+    CURSOR student_scores IS
+        SELECT su.Student_ID, s.Name, AVG(su.Score) AS Avg_Score
+        FROM SUBMISSION su
+        JOIN STUDENT s ON su.Student_ID = s.Student_ID
+        GROUP BY su.Student_ID, s.Name;
+    v_student_id STUDENT.Student_ID%TYPE;
+    v_student_name STUDENT.Name%TYPE;
+    v_avg_score NUMBER;
 BEGIN
-  OPEN student_grades;
-  LOOP
-    FETCH student_grades INTO v_student_id, v_student_name, v_avg_grade;
-    EXIT WHEN student_grades%NOTFOUND;
-    DBMS_OUTPUT.PUT_LINE('Student ID: ' || v_student_id || ' | Name: ' || v_student_name || ' | Average Grade: ' || v_avg_grade);
-  END LOOP;
-  CLOSE student_grades;
+    OPEN student_scores;
+    LOOP
+        FETCH student_scores INTO v_student_id, v_student_name, v_avg_score;
+        EXIT WHEN student_scores%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('Student ID: ' || v_student_id || ' | Name: ' || v_student_name || ' | Average Score: ' || v_avg_score);
+    END LOOP;
+    CLOSE student_scores;
 END;
 /
+```
 
-![WhatsApp Image 2024-12-03 at 07 44 14 (1)](https://github.com/user-attachments/assets/73437c9b-2ac3-4213-af43-faa369ebed75)
+#### 3. Attributes (%TYPE and %ROWTYPE)
+Improves code efficiency.
 
-## **3. Attributes (%TYPE and %ROWTYPE)**
-
-This step demonstrates the use of `%TYPE` and `%ROWTYPE` to improve efficiency and reusability in PL/SQL code.
-
+```sql
 DECLARE
-  v_student_rec STUDENT%ROWTYPE;
+    v_student_rec STUDENT%ROWTYPE;
 BEGIN
-  SELECT * INTO v_student_rec FROM STUDENT WHERE Student_ID = 1;
-  DBMS_OUTPUT.PUT_LINE('Student Name: ' || v_student_rec.Name);
+    SELECT * INTO v_student_rec FROM STUDENT WHERE Student_ID = 1;
+    DBMS_OUTPUT.PUT_LINE('Student Name: ' || v_student_rec.Name);
 END;
 /
+```
 
-![WhatsApp Image 2024-12-03 at 07 44 15](https://github.com/user-attachments/assets/4400f577-35b3-4931-9efa-b6e269cb734f)
-
-## **4. Package Development**
-
-### **a) Package Specification**  
-
-The package specification defines reusable procedures for logging audits and updating course capacities.
-
-CREATE OR REPLACE PACKAGE cms_package AS
-  PROCEDURE log_audit(p_table_name VARCHAR2, p_action_type VARCHAR2);
-  PROCEDURE update_course_capacity(p_course_id INT);
-END cms_package;
+#### 4. Package Development
+- **Package Specification**:
+```sql
+CREATE OR REPLACE PACKAGE quiz_package AS
+    PROCEDURE log_audit(p_table_name VARCHAR2, p_action_type VARCHAR2);
+    PROCEDURE update_quiz_score(p_submission_id INT);
+END quiz_package;
 /
+```
 
-### **b) Package Body**  
+- **Package Body**:
+```sql
+CREATE OR REPLACE PACKAGE BODY quiz_package AS
+    PROCEDURE log_audit(p_table_name VARCHAR2, p_action_type VARCHAR2) IS
+    BEGIN
+        INSERT INTO AUDIT_LOG (Table_Name, Action_Type, Changed_By, Change_Date)
+        VALUES (p_table_name, p_action_type, USER, SYSDATE);
+    END log_audit;
 
-The package body implements the procedures defined in the specification.
-
-CREATE OR REPLACE PACKAGE BODY cms_package AS
-  PROCEDURE log_audit(p_table_name VARCHAR2, p_action_type VARCHAR2) IS
-  BEGIN
-    INSERT INTO AUDIT_LOG (Table_Name, Action_Type, Changed_By, Change_Date)
-    VALUES (p_table_name, p_action_type, USER, SYSDATE);
-  END log_audit;
-
-  PROCEDURE update_course_capacity(p_course_id INT) IS
-  BEGIN
-    UPDATE COURSE
-    SET Seats_Available = Seats_Available - 1
-    WHERE Course_ID = p_course_id;
-  END update_course_capacity;
-END cms_package;
+    PROCEDURE update_quiz_score(p_submission_id INT) IS
+    BEGIN
+        UPDATE SUBMISSION
+        SET Score = (SELECT SUM(Is_Correct) * 10 FROM QUIZ_ATTEMPT WHERE Submission_ID = p_submission_id)
+        WHERE Submission_ID = p_submission_id;
+    END update_quiz_score;
+END quiz_package;
 /
+```
 
-## **5. Auditing and Restrictions**
-
-### **a) Auditing Example**  
-This trigger logs updates and deletions of sensitive student data into an audit log.
-
+#### 5. Auditing and Restrictions
+- **Auditing Trigger**:
+```sql
 CREATE OR REPLACE TRIGGER audit_sensitive_data
 AFTER UPDATE OR DELETE ON STUDENT
 FOR EACH ROW
 DECLARE
-  v_action_type VARCHAR2(10);
+    v_action_type VARCHAR2(10);
 BEGIN
-  IF DELETING THEN
-    v_action_type := 'DELETE';
-  ELSIF UPDATING THEN
-    v_action_type := 'UPDATE';
-  END IF;
-
-  INSERT INTO AUDIT_LOG (Table_Name, Action_Type, Changed_By, Change_Date)
-  VALUES ('STUDENT', v_action_type, USER, SYSDATE);
+    IF DELETING THEN
+        v_action_type := 'DELETE';
+    ELSIF UPDATING THEN
+        v_action_type := 'UPDATE';
+    END IF;
+    INSERT INTO AUDIT_LOG (Table_Name, Action_Type, Changed_By, Change_Date)
+    VALUES ('STUDENT', v_action_type, USER, SYSDATE);
 END;
 /
-![WhatsApp Image 2024-12-03 at 07 44 14](https://github.com/user-attachments/assets/62417f21-80ea-4324-8d1d-08ad91dd82e0)
+```
 
-### **b) Restriction Example**  
-This procedure prevents unauthorized access to sensitive data based on the user's role.
-
+- **Restriction Example**:
+```sql
 BEGIN
-  IF SYS_CONTEXT('USERENV', 'SESSION_USER') != 'ADMIN_ROLE' THEN
-    RAISE_APPLICATION_ERROR(-20003, 'Unauthorized access.');
-  END IF;
+    IF SYS_CONTEXT('USERENV', 'SESSION_USER') != 'ADMIN_ROLE' THEN
+        RAISE_APPLICATION_ERROR(-20003, 'Unauthorized access.');
+    END IF;
 END;
 /
+```
 
-### **Scope**  
-- **Triggers**: Enforce data integrity and automate workflows.  
-- **Cursors**: Enable efficient row-by-row data processing.  
-- **Packages**: Group related procedures for better organization and reusability.  
-- **Auditing**: Improve security and accountability by logging changes to sensitive data.
+#### Scope
+- **Triggers**: Enforce quiz rules and automate scoring.
+- **Cursors**: Process quiz results efficiently.
+- **Packages**: Enhance modularity and reusability.
+- **Auditing**: Ensure security and accountability.
 
+---
 
+## Anticipated Benefits
+- **Automated Quiz Generation**: Saves time for instructors.
+- **Secure & Timed Exams**: Prevents cheating and ensures fairness.
+- **Performance Analytics**: Helps teachers track student progress.
 
-
-
-<br>
-<br>
-
-# **THIS MARKS THE CONCLUSION OF OUR PROJECT**
-
-# _**CREDITS**_ :
-
-_credit of this project goes to every member of the group that worked relentlessly and hard for this to happen:_
-
-1. **MUGISHA Julien**  
-   - Business Process Modeling  
-   - Lecturer Table Creation  
-   - Repository Creation  
-   - Advanced Database Programming
-
-2. **IRADUKUNDA Delphine**  
-   - Business Process Modeling  
-   - Course Table Creation  
-   - Repository Creation  
-   - Advanced Database Programming
-
-3. **SHEJA N M Yves**  
-   - Logical Modeling  
-   - Database Creation  
-   - Transaction Operation Creation  
-   - Advanced Database Programming
-
-4. **ISHIMWE Mireille**  
-   - Business Process Modeling  
-   - Department Table Creation  
-   - View Creation  
-   - Advanced Database Programming
-
-5. **INEZA HABAMENSHI Darryl**  
-   - Logical Modeling  
-   - Submission Table Creation  
-   - View Creation  
-   - Advanced Database Programming
-
-6. **UWAYO Olga**  
-   - Business Process Modeling  
-   - Attendance Table Creation  
-   - View Creation  
-   - Advanced Database Programming
-
-7. **KAMALI MUSASIRA Philbert**  
-   - Logical Modeling  
-   - Grade Table Creation  
-   - Transaction Operation Creation  
-   - Advanced Database Programming
-
-8. **IRAKOZE Arlaine Peace**  
-   - Logical Modeling  
-   - Assignment Table Creation  
-   - Repository Creation  
-   - Advanced Database Programming
-
-9. **ISHEMA NGABO Ange**  
-   - Business Process Modeling  
-   - Students Table Creation  
-   - View Creation  
-   - Advanced Database Programming
-
-
-
-
-
+For further details, refer to the repository files for screenshots and additional documentation.
