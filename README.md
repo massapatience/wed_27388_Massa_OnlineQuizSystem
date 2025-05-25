@@ -156,6 +156,7 @@ INSERT INTO attempt VALUES (1001, 1002, 11, 45, SYSDATE);
 INSERT INTO question VALUES (101, 10, 'What is 10 / 2?', '3', '5', '7', '6', 'B');
 INSERT INTO question VALUES (102, 11, 'What planet is known as the Red Planet?', 'Earth', 'Mars', 'Venus', 'Jupiter', 'B');
 
+![teacher](https://github.com/user-attachments/assets/5abe5586-534a-4f97-a518-417e933a32fa)
 
 ---
 
@@ -198,7 +199,8 @@ VALUES (1, 1, 1, SYSDATE, 85);
 INSERT INTO QUIZ_ATTEMPT (Attempt_ID, Submission_ID, Question_ID, Student_Answer, Is_Correct)
 VALUES (1, 1, 1, 'SELECT', 1);
 COMMIT;
-```
+
+
 
 ---
 
