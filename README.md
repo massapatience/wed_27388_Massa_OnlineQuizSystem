@@ -73,6 +73,7 @@ alter pluggable database wed_27388_OnlineQuizSystem_db open;
 - **Oracle Enterprise Manager**: Log in with the created username and password, using the pluggable database as the container. The homepage provides access to database management tools.
 
 ---
+![PDB creation](https://github.com/user-attachments/assets/a881e844-f008-4683-8763-b743bb4a2f3e)
 
 
 ![Image](https://github.com/user-attachments/assets/9ee929bd-6046-479e-81c9-e5d4c4a796ca)
