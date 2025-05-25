@@ -1,7 +1,7 @@
 # Online Quiz System
 
 ## Project Overview
-The **Online Quiz System** is designed to streamline online examination processes for universities, making assessments efficient, scalable, and user-friendly. Built using Oracle PL/SQL, this system automates quiz creation, administration, and grading, while providing performance analytics for teachers and students. The project is developed by the **Cardinals Group** to address challenges in online assessment management.
+The **Online Quiz System** is designed to streamline online examination processes for universities, making assessments efficient, scalable, and user-friendly. Built using Oracle PL/SQL, this system automates quiz creation, administration, and grading, while providing performance analytics for teachers and students. The project is developed by the **Cardinals Group** to address challenges in online assessment management.The Online Quiz System is a database-driven application built with Oracle PL/SQL that allows teachers to create quizzes, students to take quizzes, and the system to grade and record scores automatically. It ensures secure access, prevents unauthorized data changes during restricted days, and supports performance tracking and reporting through MIS features like audit logs and result queries.
 
 ### Cardinals Group Members
 1. Bakwiye Massa Patience       27388
